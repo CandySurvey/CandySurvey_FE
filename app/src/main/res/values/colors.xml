@@ -25,5 +25,9 @@
 
     <!--  Stroke Color  -->
     <color name="strokeColor">#898C8E</color>
+    <color name="strokeColor2">#E5E8EA</color>
+
+    <!--  Background Color  -->
+    <color name="secondaryBackgroundColor">#F0F2F5</color>
 
 </resources>

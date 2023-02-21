@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="92dp"
-            android:text="Hyoni Form"
+            android:text="Candy Survey"
             android:textColor="@color/secondaryColor"
             android:textSize="32sp"
             android:textStyle="bold" />
@@ -31,10 +31,10 @@
             android:lineSpacingExtra="5sp"
             android:padding="8dp"
             android:text="@string/app_introduce"
-            android:textAppearance="@style/hyoni_form_" />
+            android:textAppearance="@style/bold_16sp" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
@@ -42,7 +42,7 @@
 
             <RelativeLayout
                 android:id="@+id/googleLoginBtn"
-                android:layout_width="328dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="16dp"
@@ -69,7 +69,7 @@
 
                         <TextView
                             android:layout_width="76dp"
-                            android:layout_height="24dp"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginLeft="95dp"
                             android:layout_marginRight="119dp"
@@ -86,7 +86,7 @@
 
             <RelativeLayout
                 android:id="@+id/kakaoLoginBtn"
-                android:layout_width="328dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="16dp"
@@ -110,7 +110,7 @@
 
                         <TextView
                             android:layout_width="90dp"
-                            android:layout_height="24dp"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginLeft="89dp"
                             android:layout_marginRight="119dp"
@@ -127,7 +127,7 @@
 
             <RelativeLayout
                 android:id="@+id/naverLoginBtn"
-                android:layout_width="328dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="16dp"
@@ -151,7 +151,7 @@
 
                         <TextView
                             android:layout_width="90dp"
-                            android:layout_height="24dp"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginLeft="89dp"
                             android:layout_marginRight="119dp"
@@ -169,14 +169,16 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="328dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:orientation="horizontal">
 
             <View
-                android:layout_width="100dp"
+                android:layout_width="116dp"
                 android:layout_height="2dp"
                 android:layout_gravity="center"
                 android:background="@color/strokeColor" />
@@ -193,7 +195,7 @@
                 android:textStyle="bold" />
 
             <View
-                android:layout_width="100dp"
+                android:layout_width="116dp"
                 android:layout_height="2dp"
                 android:layout_gravity="center"
                 android:background="@color/strokeColor" />
@@ -202,7 +204,7 @@
 
         <RelativeLayout
             android:id="@+id/localLoginBtn"
-            android:layout_width="328dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="16dp"
@@ -218,7 +220,7 @@
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="24dp"
+                    android:layout_height="wrap_content"
                     android:lineSpacingExtra="5sp"
                     android:text="회원가입"
                     android:textAppearance="@style/loginBtnText"
@@ -247,6 +249,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/alreadyLoginBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"

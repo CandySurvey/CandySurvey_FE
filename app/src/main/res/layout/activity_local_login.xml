@@ -80,11 +80,13 @@
 
                     <EditText
                         android:hint="아이디를 입력하세요."
+                        android:textSize="12sp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:padding="8dp"
                         android:textCursorDrawable="@drawable/id_pw_text_cursor"
                         android:inputType="textNoSuggestions"
-                        android:background="@android:color/transparent"/>
+                        android:background="@drawable/information_input_area_radius"/>
 
                 </LinearLayout>
 
@@ -109,11 +111,13 @@
 
                     <EditText
                         android:hint="비밀번호를 입력하세요."
+                        android:textSize="12sp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:padding="8dp"
                         android:textCursorDrawable="@drawable/id_pw_text_cursor"
                         android:inputType="textNoSuggestions"
-                        android:background="@android:color/transparent"/>
+                        android:background="@drawable/information_input_area_radius"/>
 
                 </LinearLayout>
 
@@ -299,4 +303,4 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
 
-<!--  EditText 부분 커스텀 해야함!  -->
+<!--아이디 찾기/비밀번호 찾기 버튼으로 태그 수정 예정-->

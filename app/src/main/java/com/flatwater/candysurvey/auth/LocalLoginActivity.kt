@@ -39,6 +39,15 @@ class LocalLoginActivity : AppCompatActivity() {
 
         }
 
+        binding.closeBtn.setOnClickListener {
+            // 되돌아가기 기능 구현예정
+            Toast.makeText(this, "되돌아가기 기능 구현 예정", Toast.LENGTH_SHORT).show()
 
+        }
     }
 }
+
+// 아이디/비밀번호 입력할 때 소셜로그인 부분 스크롤 기능 구현 (키패드가 가리니까)
+// 아이디 찾기/비밀번호 찾기 버튼 태그로 바꾸고 클릭 이벤트 구현해야함
+
+

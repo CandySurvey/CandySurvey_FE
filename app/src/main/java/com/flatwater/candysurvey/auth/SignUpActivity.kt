@@ -29,6 +29,11 @@ class SignUpActivity : AppCompatActivity() {
             Toast.makeText(this, "되돌아갑니다.", Toast.LENGTH_SHORT).show()
         }
 
+        // 뒤로가기 버튼
+        binding.closeBtn.setOnClickListener {
+            finish()
+        }
+
     }
 }
 

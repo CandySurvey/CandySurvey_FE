@@ -62,4 +62,115 @@
         <item name="android:textColor">#000000</item>
         <item name="android:fontFamily">@font/typo_ssigothic150</item>
     </style>
+
+    <!--  로그인 페이지 경고 모달창 텍스트  -->
+    <style name="loginWarningText">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/secondaryColor</item>
+        <item name="fontFamily">@font/typo_ssigothic150</item>
+    </style>
+
+    <!--  아이디/비밀번호 찾기 페이지  -->
+    <style name="idPwFindTitle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#000000</item>
+        <item name="fontFamily">@font/typo_ssigothic150</item>
+    </style>
+
+    <style name="idPwFindDesc">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:letterSpacing">-0.04</item>
+        <item name="fontFamily">@font/typo_ssigothic130</item>
+    </style>
+
+    <style name="authNumBtn">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:letterSpacing">-0.04</item>
+        <item name="fontFamily">@font/typo_ssigothic150</item>
+    </style>
+
+    <!--  찾은 아이디/비밀번호 확인 페이지  -->
+    <style name="foundIdPwText">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="fontFamily">@font/typo_ssigothic150</item>
+    </style>
+
+    <style name="foundIdPwValue">
+        <item name="android:textSize">26sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/mainColor</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="fontFamily">@font/typo_ssigothic150</item>
+    </style>
+
+    <!--  메인페이지 설문 아이템 텍스트  -->
+    <style name="mainpageApplicationName">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:fontFamily">@font/typo_ssigothic150</item>
+    </style>
+
+    <style name="mainpageEditBtn">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">-0.03</item>
+        <item name="android:fontFamily">@font/typo_ssigothic130</item>
+    </style>
+
+    <style name="mainpageSurveyCountText">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:letterSpacing">-0.04</item>
+        <item name="fontFamily">@font/typo_ssigothic150</item>
+    </style>
+
+    <style name="mainpageSurveySortText">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#000000</item>
+        <item name="fontFamily">@font/typo_ssigothic150</item>
+    </style>
+
+    <style name="mainpageSurveyText">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:letterSpacing">-0.05</item>
+        <item name="fontFamily">@font/typo_ssigothic150</item>
+    </style>
+
+    <style name="mainpageSurveyEditText">
+        <item name="android:textSize">8sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textColor">@color/secondaryColor</item>
+    </style>
+
+    <!--  메인페이지 드로어 레이아웃  -->
+    <style name="drawerUsername">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/mainColor</item>
+        <item name="android:letterSpacing">-0.03</item>
+        <item name="fontFamily">@font/typo_ssigothic150</item>
+    </style>
+    
+    <style name="drawerGreetText">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#000000</item>
+        <item name="fontFamily">@font/typo_ssigothic150</item>
+    </style>
+
 </resources>

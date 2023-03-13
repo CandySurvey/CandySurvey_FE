@@ -12,6 +12,8 @@ class IntroActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityIntroBinding
 
+    var backPressedTime : Long = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -50,6 +52,20 @@ class IntroActivity : AppCompatActivity() {
             val intent = Intent(this, LocalLoginActivity::class.java)
             startActivity(intent)
         }
+
+    }
+
+    // 두번 터치 앱 종료 기능 구현
+    override fun onBackPressed() {
+
+        if(backPressedTime + 3000 > System.currentTimeMillis()) {
+            super.onBackPressed()
+            finishAffinity()
+        } else {
+            Toast.makeText(applicationContext, "한번 더 뒤로가기 버튼을 누르면 종료됩니다.", Toast.LENGTH_SHORT).show()
+        }
+
+        backPressedTime = System.currentTimeMillis()
 
     }
 }

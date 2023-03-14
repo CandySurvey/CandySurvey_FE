@@ -21,11 +21,6 @@ class LocalLoginActivity : AppCompatActivity() {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_local_login)
 
-        binding.closeBtn.setOnClickListener {
-            // 되돌아가기 기능 구현예정
-            Toast.makeText(this, "되돌아가기 기능 구현 예정", Toast.LENGTH_SHORT).show()
-        }
-
         // 아이디 찾기 버튼 클릭 이벤트 구현 (완성)
         binding.findId.setOnClickListener {
             val intent = Intent(this, FindIdActivity::class.java)

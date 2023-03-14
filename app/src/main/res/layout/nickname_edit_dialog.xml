@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/modalText"
+        android:text="정말 변경하시겠습니까?"
+        android:textAppearance="@style/myPageModalText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/modalText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/yesBtn"
+            android:text="예"
+            android:textAppearance="@style/myPageModalBtnText"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:background="@drawable/mypage_modal_btn"/>
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="0dp"/>
+
+        <Button
+            android:id="@+id/noBtn"
+            android:text="아니오"
+            android:textAppearance="@style/myPageModalBtnText"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:background="@drawable/mypage_modal_btn" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+<!-- 따로 xml 파일 만들어 적용해도 되지 않는데, 수정해야함 -->

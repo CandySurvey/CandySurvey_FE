@@ -48,12 +48,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.mypage -> {
-                Toast.makeText(this, "mypage Clicked", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, MyPageActivity::class.java)
                 startActivity(intent)
             }
             R.id.setting -> {
-                Toast.makeText(this, "setting Clicked", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, SettingActivity::class.java)
                 startActivity(intent)
             }

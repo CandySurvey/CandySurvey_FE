@@ -173,4 +173,31 @@
         <item name="fontFamily">@font/typo_ssigothic150</item>
     </style>
 
+    <!--  마이페이지 텍스트 스타일  -->
+    <style name="myPageUserName">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/mainColor</item>
+        <item name="fontFamily">@font/typo_ssigothic150</item>
+    </style>
+    <style name="myPageIntroduceText">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#000000</item>
+        <item name="fontFamily">@font/typo_ssigothic150</item>
+    </style>
+    <style name="myPageModalText">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/secondaryColor</item>
+        <item name="android:letterSpacing">-0.03</item>
+        <item name="fontFamily">@font/typo_ssigothic150</item>
+    </style>
+    <style name="myPageModalBtnText">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/secondaryColor</item>
+        <item name="android:letterSpacing">-0.04</item>
+        <item name="fontFamily">@font/typo_ssigothic150</item>
+    </style>
 </resources>

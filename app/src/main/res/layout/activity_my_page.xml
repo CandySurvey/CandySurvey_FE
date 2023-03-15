@@ -129,7 +129,7 @@
                             android:layout_width="212dp"
                             android:layout_height="wrap_content"
                             android:background="@drawable/information_input_area_radius"
-                            android:hint="변경하실 닉네임을 입력하세요."
+                            android:hint="default value"
                             android:inputType="textNoSuggestions"
                             android:padding="8dp"
                             android:textCursorDrawable="@drawable/id_pw_text_cursor"

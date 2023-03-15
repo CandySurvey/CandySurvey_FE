@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="240dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/mypage_modal_radius"
     android:orientation="vertical">
 
     <TextView
@@ -12,45 +13,46 @@
         android:textAppearance="@style/myPageModalText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="28dp"
+        android:layout_gravity="center" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/modalText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_marginBottom="28dp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/yesBtn"
-            android:text="예"
-            android:textAppearance="@style/myPageModalBtnText"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:minHeight="0dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:background="@drawable/mypage_modal_btn"
             android:minWidth="0dp"
-            android:background="@drawable/mypage_modal_btn"/>
+            android:minHeight="0dp"
+            android:text="예"
+            android:textAppearance="@style/myPageModalBtnText" />
 
         <View
             android:layout_width="20dp"
-            android:layout_height="0dp"/>
+            android:layout_height="0dp" />
 
         <Button
             android:id="@+id/noBtn"
-            android:text="아니오"
-            android:textAppearance="@style/myPageModalBtnText"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:minHeight="0dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:background="@drawable/mypage_modal_btn"
             android:minWidth="0dp"
-            android:background="@drawable/mypage_modal_btn" />
+            android:minHeight="0dp"
+            android:text="아니오"
+            android:textAppearance="@style/myPageModalBtnText" />
 
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
 <!-- 따로 xml 파일 만들어 적용해도 되지 않는데, 수정해야함 -->

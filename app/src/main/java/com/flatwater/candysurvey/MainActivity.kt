@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
 import com.flatwater.candysurvey.databinding.ActivityMainBinding
+import com.flatwater.candysurvey.produce.ProduceActivity
 import com.flatwater.candysurvey.setting.MyPageActivity
 import com.flatwater.candysurvey.setting.SettingActivity
 import com.google.android.material.navigation.NavigationView
@@ -24,6 +25,27 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
+        // 설문지 제작하기 버튼 클릭 이벤트 연결
+        val makeSurveyDialog = MakeSurveyDialog(this)
+        binding.makeSurveyBtn.setOnClickListener{
+
+            makeSurveyDialog.showMakeSurveyDialog()
+
+            makeSurveyDialog.setOnClickedListener(object : MakeSurveyDialog.ButtonClickListener {
+                override fun onClicked(surveyTitle: String) {
+                    // 제목을 입력했을 경우에는 ProduceActivity로 넘어가고, 그렇지 않을 경우에는 Dialog 닫아주는 코드
+                    if(surveyTitle.length > 0){
+                        val intent = Intent(baseContext, ProduceActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                        // 받아온 제목을 ProduceActivity의 상단 제목에 넣어주어야 함 (미완)
+                    } else {
+                        Toast.makeText(baseContext, "제목을 입력해주세요..", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            })
+        }
 
         // 메뉴 버튼에 클릭 이벤트 연결
         binding.menuBtn.setOnClickListener{
@@ -61,14 +83,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     // 두번 터치 앱 종료 기능 구현
     override fun onBackPressed() {
-
         if(backPressedTime + 3000 > System.currentTimeMillis()) {
             super.onBackPressed()
             finishAffinity()
         } else {
             Toast.makeText(this, "정말 종료하시겠습니까?", Toast.LENGTH_SHORT).show()
         }
-
         backPressedTime = System.currentTimeMillis()
     }
 

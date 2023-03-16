@@ -55,6 +55,7 @@
                         android:textAppearance="@style/mainpageEditBtn"
                         android:layout_width="60dp"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/mainpage_edit_btn"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />

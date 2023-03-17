@@ -20,11 +20,23 @@ class ProduceActivity : AppCompatActivity() {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_produce)
 
+        // MainActivity에서 SurveyTitle Data 받아오는 코드
+        val surveyTitle = intent.getStringExtra("surveyTitle")
+        binding.surveyTitle.text = surveyTitle
+
         // 뒤로가기 버튼 연결
         binding.closeBtn.setOnClickListener{
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
+        }
+
+        // 저장 버튼 연결
+        val saveDialog = SaveDialog(this)
+        binding.saveBtn.setOnClickListener {
+            saveDialog.showSaveDialog()
+            // SaveDialog에서 yesBtn을 클릭하면 true값 -> ProduceActivity에서 데이터 메인 액티비티로 전달해서 블록 생성
+            // SaveDialog에서 noBtn을 클릭하면 false값 -> ProduceActivity에서 작업하던 상태 그대로 유지
         }
 
         // 메인페이지 네비게이션 연결

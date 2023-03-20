@@ -1,18 +1,28 @@
 package com.flatwater.candysurvey
 
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.ImageButton
+import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.flatwater.candysurvey.databinding.ActivityMainBinding
 import com.flatwater.candysurvey.produce.ProduceActivity
 import com.flatwater.candysurvey.setting.MyPageActivity
 import com.flatwater.candysurvey.setting.SettingActivity
+import com.flatwater.candysurvey.surveyList.SurveyListRVAdapter
+import com.flatwater.candysurvey.surveyList.SurveyModel
 import com.google.android.material.navigation.NavigationView
+import java.time.LocalDate
+import java.time.LocalDateTime
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -25,6 +35,23 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
+        // 리사이클러뷰 어댑터와 연결해서 설문 아이템 메인페이지에 랜더링
+        val rv_surveyItem = findViewById<RecyclerView>(R.id.rv_surveyItemArea)
+        val itemList = ArrayList<SurveyModel>()
+
+        itemList.add(SurveyModel("짜장","2023-03-20", "78명"))
+        itemList.add(SurveyModel("짬뽕","2023-03-20", "89명"))
+        itemList.add(SurveyModel("탕수육","2023-03-20", "110명"))
+        itemList.add(SurveyModel("탕수육","2023-03-20", "110명"))
+        itemList.add(SurveyModel("탕수육","2023-03-20", "110명"))
+        itemList.add(SurveyModel("탕수육","2023-03-20", "110명"))
+
+        val surveyAdapter = SurveyListRVAdapter(itemList)
+        surveyAdapter.notifyDataSetChanged()
+
+        rv_surveyItem.adapter = surveyAdapter
+        rv_surveyItem.layoutManager = GridLayoutManager(applicationContext, 2)
 
         // 설문지 제작하기 버튼 클릭 이벤트 연결
         val makeSurveyDialog = MakeSurveyDialog(this)

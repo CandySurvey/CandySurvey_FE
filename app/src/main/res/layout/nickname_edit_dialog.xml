@@ -26,15 +26,15 @@
 
         <Button
             android:id="@+id/yesBtn"
+            android:text="예"
+            android:textAppearance="@style/myPageModalBtnText"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
             android:background="@drawable/mypage_modal_btn"
             android:minWidth="0dp"
-            android:minHeight="0dp"
-            android:text="예"
-            android:textAppearance="@style/myPageModalBtnText" />
+            android:minHeight="0dp" />
 
         <View
             android:layout_width="20dp"
@@ -42,17 +42,16 @@
 
         <Button
             android:id="@+id/noBtn"
+            android:text="아니오"
+            android:textAppearance="@style/myPageModalBtnText"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
             android:background="@drawable/mypage_modal_btn"
             android:minWidth="0dp"
-            android:minHeight="0dp"
-            android:text="아니오"
-            android:textAppearance="@style/myPageModalBtnText" />
+            android:minHeight="0dp" />
 
     </LinearLayout>
 
 </LinearLayout>
-<!-- 따로 xml 파일 만들어 적용해도 되지 않는데, 수정해야함 -->

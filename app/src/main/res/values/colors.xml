@@ -17,6 +17,7 @@
 
     <!--  Text Color  -->
     <color name="secondaryColor">#333D4B</color>
+    <color name="templateHintColor">#D3D3D3</color>
 
     <!--  Button Color  -->
     <color name="kakaoLoginBtn">#FEE500</color>

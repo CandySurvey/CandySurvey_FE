@@ -16,7 +16,11 @@
         android:layout_marginTop="12dp"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp" />
+        android:layout_marginRight="8dp"
+        android:backgroundTint="@color/templateHintColor"
+        android:inputType="textVisiblePassword|textNoSuggestions"
+        android:textCursorDrawable="@color/mainColor"
+        android:textColorHint="@color/templateHintColor"/>
 
     <EditText
         android:id="@+id/secondaryTitle"
@@ -24,7 +28,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"/>
+        android:layout_marginRight="8dp"
+        android:backgroundTint="@color/templateHintColor"
+        android:inputType="textVisiblePassword|textNoSuggestions"
+        android:textCursorDrawable="@color/mainColor"
+        android:textColorHint="@color/templateHintColor"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -62,4 +70,4 @@
         android:background="@drawable/rv_template_active"/>
 
 </LinearLayout>
-<!--그림자 커스텀 (추후예정)-->
+<!-- EditText에 포커싱 잡혔을 때 밑줄 & 커서 색상 파란색으로 변경 -->

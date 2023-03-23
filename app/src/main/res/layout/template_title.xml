@@ -9,7 +9,7 @@
     android:orientation="vertical">
 
     <EditText
-        android:id="@+id/primaryTitle"
+        android:id="@+id/surveyTitle"
         android:hint="제목을 입력하세요"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,11 +19,12 @@
         android:layout_marginRight="8dp"
         android:backgroundTint="@color/templateHintColor"
         android:inputType="textVisiblePassword|textNoSuggestions"
+        android:textAppearance="@style/templateHintText"
         android:textCursorDrawable="@color/mainColor"
         android:textColorHint="@color/templateHintColor"/>
 
     <EditText
-        android:id="@+id/secondaryTitle"
+        android:id="@+id/surveyDetail"
         android:hint="부제"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -31,6 +32,7 @@
         android:layout_marginRight="8dp"
         android:backgroundTint="@color/templateHintColor"
         android:inputType="textVisiblePassword|textNoSuggestions"
+        android:textAppearance="@style/templateHintText"
         android:textCursorDrawable="@color/mainColor"
         android:textColorHint="@color/templateHintColor"/>
 

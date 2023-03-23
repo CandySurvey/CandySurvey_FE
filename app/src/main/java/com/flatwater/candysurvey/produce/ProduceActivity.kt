@@ -3,7 +3,10 @@ package com.flatwater.candysurvey.produce
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.widget.Button
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -37,12 +40,8 @@ class ProduceActivity : AppCompatActivity() {
             finish()
         }
 
-        // 저장 버튼 연결
-        val saveDialog = SaveDialog(this)
         binding.saveBtn.setOnClickListener {
-            saveDialog.showSaveDialog()
-            // SaveDialog에서 yesBtn을 클릭하면 true값 -> ProduceActivity에서 데이터 메인 액티비티로 전달해서 블록 생성
-            // SaveDialog에서 noBtn을 클릭하면 false값 -> ProduceActivity에서 작업하던 상태 그대로 유지
+            showSaveDialog()
         }
 
         // 초기 제목 템플릿 자동으로 연결
@@ -84,4 +83,25 @@ class ProduceActivity : AppCompatActivity() {
         }
 
     }
+
+    private fun showSaveDialog(){
+
+        val saveDialogView = LayoutInflater.from(this).inflate(R.layout.save_check_dialog, null)
+        val saveBuilder = AlertDialog.Builder(this)
+            .setView(saveDialogView)
+
+        val alertSaveDialog = saveBuilder.show()
+
+        alertSaveDialog.findViewById<Button>(R.id.yesBtn)?.setOnClickListener {
+            Toast.makeText(this,"저장되었습니다!", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        alertSaveDialog.findViewById<Button>(R.id.noBtn)?.setOnClickListener {
+            // 원래 작업하던 페이지로 돌아가게 구현해야함!
+            Toast.makeText(this,"원래대로 돌아갑니다!", Toast.LENGTH_SHORT).show()
+        }
+    }
+
 }

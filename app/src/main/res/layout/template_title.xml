@@ -1,75 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginBottom="12dp"
-    android:elevation="8dp"
-    android:background="@drawable/rv_template_item_radius"
-    android:orientation="vertical">
-
-    <EditText
-        android:id="@+id/surveyTitle"
-        android:hint="제목을 입력하세요"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:backgroundTint="@color/templateHintColor"
-        android:inputType="textVisiblePassword|textNoSuggestions"
-        android:textAppearance="@style/templateHintText"
-        android:textCursorDrawable="@color/mainColor"
-        android:textColorHint="@color/templateHintColor"/>
-
-    <EditText
-        android:id="@+id/surveyDetail"
-        android:hint="부제"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:backgroundTint="@color/templateHintColor"
-        android:inputType="textVisiblePassword|textNoSuggestions"
-        android:textAppearance="@style/templateHintText"
-        android:textCursorDrawable="@color/mainColor"
-        android:textColorHint="@color/templateHintColor"/>
+<layout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="4dp"
-        android:weightSum="1"
-        android:orientation="horizontal">
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/rv_template_item_radius"
+        android:elevation="8dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/surveyTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="@color/templateHintColor"
+            android:hint="제목을 입력하세요"
+            android:inputType="textVisiblePassword|textNoSuggestions"
+            android:textAppearance="@style/templateHintText"
+            android:textColorHint="@color/templateHintColor"
+            android:textCursorDrawable="@color/mainColor" />
+
+        <EditText
+            android:id="@+id/surveyDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:backgroundTint="@color/templateHintColor"
+            android:hint="부제"
+            android:inputType="textVisiblePassword|textNoSuggestions"
+            android:textAppearance="@style/templateHintText"
+            android:textColorHint="@color/templateHintColor"
+            android:textCursorDrawable="@color/mainColor" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="4dp"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00000000"
+                android:padding="6dp"
+                android:src="@drawable/copy_black" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00000000"
+                android:padding="6dp"
+                android:src="@drawable/delete_black" />
+
+        </LinearLayout>
 
         <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
-
-        <ImageButton
-            android:src="@drawable/copy_black"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="6dp"
-            android:background="#00000000"/>
-
-        <ImageButton
-            android:src="@drawable/delete_black"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="6dp"
-            android:background="#00000000"/>
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@drawable/rv_template_active" />
 
     </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:background="@drawable/rv_template_active"/>
-
-</LinearLayout>
-<!-- EditText에 포커싱 잡혔을 때 밑줄 & 커서 색상 파란색으로 변경 -->
+</layout>
+    <!-- EditText에 포커싱 잡혔을 때 밑줄 & 커서 색상 파란색으로 변경 -->

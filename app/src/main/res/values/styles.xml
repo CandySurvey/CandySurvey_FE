@@ -234,4 +234,17 @@
         <item name="android:textStyle">bold</item>
         <item name="fontFamily">@font/typo_ssigothic150</item>
     </style>
+
+    <style name="templateMultiChoiceOptionText">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="fontFamily">@font/typo_ssigothic130</item>
+    </style>
+
+    <style name="templateDropdownOptionNumber">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/secondaryColor</item>
+        <item name="fontFamily">@font/typo_ssigothic150</item>
+    </style>
 </resources>

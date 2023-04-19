@@ -19,11 +19,7 @@ import com.flatwater.candysurvey.setting.MyPageActivity
 import com.flatwater.candysurvey.template.TitleTemplateModel
 import com.flatwater.candysurvey.template.TitleTemplateRVAdapter
 import com.flatwater.candysurvey.templatedata.CommonItem
-import com.flatwater.candysurvey.templatedata.viewobject.LongAnswerViewObject
-import com.flatwater.candysurvey.templatedata.viewobject.ShortAnswerViewObject
-import com.flatwater.candysurvey.templatedata.viewobject.TitleViewObject
-import com.flatwater.candysurvey.templatedata.viewobject.ViewObject
-import com.flatwater.candysurvey.viewholder.TitleViewHolder
+import com.flatwater.candysurvey.templatedata.viewobject.*
 
 class ProduceActivity : AppCompatActivity() {
 
@@ -86,15 +82,21 @@ class ProduceActivity : AppCompatActivity() {
             Toast.makeText(this, "공유하기 템플릿 띄워야함..", Toast.LENGTH_SHORT).show()
         }
 
-        // 설문 문항 영역 템플릿 데이터 적용되는지 체크
+        // 설문지 샘플 템플릿 적용 (구현되는지 확인)
         val adapter = CommonAdapter (
             arrayOf(
                 CommonItem(
                     "TITLE",
-                    TitleViewObject(null, null )
+                    TitleViewObject(null, null)
                 ), CommonItem(
                     "SHORT_ANS",
                     ShortAnswerViewObject(null)
+                ), CommonItem(
+                    "LONG_ANS",
+                    LongAnswerViewObject(null)
+                ), CommonItem(
+                    "OPTIONAL",
+                    OptionalViewObject(null)
                 )
             )
         )

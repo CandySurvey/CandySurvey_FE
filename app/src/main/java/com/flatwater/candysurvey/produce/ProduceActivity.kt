@@ -3,6 +3,7 @@ package com.flatwater.candysurvey.produce
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.EditText
@@ -15,15 +16,30 @@ import com.flatwater.candysurvey.MainActivity
 import com.flatwater.candysurvey.R
 import com.flatwater.candysurvey.adapter.CommonAdapter
 import com.flatwater.candysurvey.databinding.ActivityProduceBinding
+import com.flatwater.candysurvey.jsondata.Items
+import com.flatwater.candysurvey.jsondata.Question
+import com.flatwater.candysurvey.jsondata.Questions
+import com.flatwater.candysurvey.jsondata.SurveyDataModel
 import com.flatwater.candysurvey.setting.MyPageActivity
 import com.flatwater.candysurvey.template.TitleTemplateModel
 import com.flatwater.candysurvey.template.TitleTemplateRVAdapter
 import com.flatwater.candysurvey.templatedata.CommonItem
 import com.flatwater.candysurvey.templatedata.viewobject.*
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 
 class ProduceActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityProduceBinding
+
+    // 설문 제목 초기화 선언 (지역함수에서 사용해야 하니까!)
+    private var surveyTitle : String? = null
+
+    // Json Data 입력 초기화 설정
+    private var item : Items = Items("")
+    private var question : Question = Question("", "", "", listOf(item))
+    private var questions : Questions = Questions(listOf(question))
+    private var surveyJson : SurveyDataModel = SurveyDataModel("", "", listOf(questions))
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -32,7 +48,7 @@ class ProduceActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_produce)
 
         // MainActivity에서 SurveyTitle Data 받아오는 코드
-        val surveyTitle = intent.getStringExtra("surveyTitle")
+        surveyTitle = intent.getStringExtra("surveyTitle")
         binding.surveyTitle.text = surveyTitle
 
         // 뒤로가기 버튼 연결
@@ -82,24 +98,26 @@ class ProduceActivity : AppCompatActivity() {
             Toast.makeText(this, "공유하기 템플릿 띄워야함..", Toast.LENGTH_SHORT).show()
         }
 
-        // 설문지 샘플 템플릿 적용 (구현되는지 확인)
+        // 설문 제작 페이지 초기 셋팅 (미리 제목템플릿 생성)
         val adapter = CommonAdapter (
             arrayOf(
                 CommonItem(
                     "TITLE",
                     TitleViewObject(null, null)
-                ), CommonItem(
-                    "SHORT_ANS",
-                    ShortAnswerViewObject(null)
-                ), CommonItem(
-                    "LONG_ANS",
-                    LongAnswerViewObject(null)
-                ), CommonItem(
-                    "OPTIONAL",
-                    OptionalViewObject(null)
                 )
             )
         )
+
+        // 샘플 Json Data 설정 코드 (Retrofit2 적용해야함)
+        item = Items("")
+        question = Question("Title", "첫번째 문제입니다!", "", listOf(item))
+        questions = Questions(listOf(question))
+        Log.d("JSON Data", "$questions")
+
+        surveyJson = SurveyDataModel("$surveyTitle", "첫번째 문제입니다!", listOf(questions))
+        val surveyJsonData = Json.encodeToString(surveyJson)
+        Log.d("JSON Data", surveyJsonData)
+
         binding.surveyArea.adapter = adapter
     }
 

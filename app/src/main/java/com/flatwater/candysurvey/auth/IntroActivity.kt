@@ -56,6 +56,7 @@ class IntroActivity : AppCompatActivity() {
     }
 
     // 두번 터치 앱 종료 기능 구현
+    @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
 
         if(backPressedTime + 3000 > System.currentTimeMillis()) {

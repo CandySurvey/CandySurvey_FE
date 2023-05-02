@@ -9,7 +9,7 @@ class DropdownViewHolder(
 ) : CommonViewHolder(binding) {
     override fun bind(item: CommonItem) {
         val viewObject = item.questionObject as DropdownViewObject
-        binding.dropdownTitle.text = viewObject.questionTitle
+        binding.dropdownTitle.setText(viewObject.questionTitle)
         // dropdown 하위 데이터 구조도 적용시켜 주어야 함! (questionItem -> item1, item2 ...)
     }
 }

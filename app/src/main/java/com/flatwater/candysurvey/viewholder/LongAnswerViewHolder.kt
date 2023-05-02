@@ -9,6 +9,6 @@ class LongAnswerViewHolder(
 ) : CommonViewHolder(binding) {
     override fun bind(item: CommonItem) {
         val viewObject = item.questionObject as LongAnswerViewObject
-        binding.longAnswer.text = viewObject.questionTitle
+        binding.longAnswer.setText(viewObject.questionTitle)
     }
 }

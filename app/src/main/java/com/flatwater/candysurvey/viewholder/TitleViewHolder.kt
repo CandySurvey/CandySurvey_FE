@@ -9,7 +9,7 @@ class TitleViewHolder(
 ) : CommonViewHolder(binding) {
     override fun bind(item: CommonItem) {
         val viewObject = item.questionObject as TitleViewObject
-        binding.surveyTitle.text = viewObject.surveyTitle
-        binding.surveyDetail.text = viewObject.surveyDetail
+        binding.surveyTitle.setText(viewObject.surveyTitle)
+        binding.surveyDetail.setText(viewObject.surveyDetail)
     }
 }

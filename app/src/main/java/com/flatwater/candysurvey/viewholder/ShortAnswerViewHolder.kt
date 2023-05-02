@@ -10,6 +10,6 @@ class ShortAnswerViewHolder (
 ) : CommonViewHolder(binding) {
     override fun bind(item: CommonItem) {
         val viewObject = item.questionObject as ShortAnswerViewObject
-        binding.shortAnswer.text = viewObject.questionTitle
+        binding.shortAnswer.setText(viewObject.questionTitle)
     }
 }

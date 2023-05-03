@@ -10,6 +10,8 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.flatwater.candysurvey.MainActivity
@@ -25,6 +27,7 @@ import com.flatwater.candysurvey.template.TitleTemplateModel
 import com.flatwater.candysurvey.template.TitleTemplateRVAdapter
 import com.flatwater.candysurvey.templatedata.CommonItem
 import com.flatwater.candysurvey.templatedata.viewobject.*
+import com.flatwater.candysurvey.viewModel.SurveyDataViewModel
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 
@@ -40,6 +43,9 @@ class ProduceActivity : AppCompatActivity() {
     private var question : Question = Question("", "", "", listOf(item))
     private var questions : Questions = Questions(listOf(question))
     private var surveyJson : SurveyDataModel = SurveyDataModel("", "", listOf(questions))
+
+    // ViewModel 초기화
+    private lateinit var viewModel : SurveyDataViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
 

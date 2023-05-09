@@ -63,12 +63,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 override fun onClicked(surveyTitle: String) {
                     // 제목을 입력했을 경우에는 ProduceActivity로 넘어가고, 그렇지 않을 경우에는 Dialog 닫아주는 코드
                     if(surveyTitle.length > 0){
-
                         val intent = Intent(baseContext, ProduceActivity::class.java)
-
                         // ProduceActivity로 데이터 넘겨주는 코드
                         intent.putExtra("surveyTitle", surveyTitle)
-
                         startActivity(intent)
                         finish()
                         // 받아온 제목을 ProduceActivity의 상단 제목에 넣어주어야 함 (미완)

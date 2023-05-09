@@ -8,7 +8,7 @@ import com.flatwater.candysurvey.utility.ViewType
 import com.flatwater.candysurvey.viewholder.CommonViewHolder
 
 class CommonAdapter(
-    private val dataSet : Array<CommonItem>
+    private val dataSet : ArrayList<CommonItem>
 ) : RecyclerView.Adapter<CommonViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CommonViewHolder {

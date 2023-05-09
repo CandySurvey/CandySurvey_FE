@@ -35,6 +35,8 @@ class ProduceActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityProduceBinding
 
+    private val dataSet = ArrayList<CommonItem>()
+
     // 설문 제목 초기화 선언 (지역함수에서 사용해야 하니까!)
     private var surveyTitle : String? = null
 
@@ -44,13 +46,8 @@ class ProduceActivity : AppCompatActivity() {
     private var questions : Questions = Questions(listOf(question))
     private var surveyJson : SurveyDataModel = SurveyDataModel("", "", listOf(questions))
 
-    // ViewModel 초기화
-    private lateinit var viewModel : SurveyDataViewModel
-
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
-
         binding = DataBindingUtil.setContentView(this, R.layout.activity_produce)
 
         // MainActivity에서 SurveyTitle Data 받아오는 코드
@@ -62,21 +59,11 @@ class ProduceActivity : AppCompatActivity() {
             showBackDialog()
         }
 
+        // 저장 버튼 연결
         binding.saveBtn.setOnClickListener {
             showSaveDialog()
+            Log.d("JSON Data", "$dataSet")
         }
-
-        // 초기 제목 템플릿 자동으로 연결
-        val rv_default = findViewById<RecyclerView>(R.id.surveyArea)
-        val itemList = ArrayList<TitleTemplateModel>()
-
-        itemList.add(TitleTemplateModel("$surveyTitle", ""))
-
-        val templateTitleAdapter = TitleTemplateRVAdapter(itemList)
-        templateTitleAdapter.notifyDataSetChanged()
-
-        rv_default.adapter = templateTitleAdapter
-        rv_default.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
         // 메인페이지 네비게이션 연결
         binding.navigateMainPage.setOnClickListener {
@@ -92,10 +79,50 @@ class ProduceActivity : AppCompatActivity() {
             finish()
         }
 
-        // 메뉴 버튼 dialog 연결
+        // 초기 제목 템플릿 자동으로 연결
+        val rv_default = findViewById<RecyclerView>(R.id.surveyArea)
+        dataSet.add(CommonItem("TITLE", TitleViewObject(null, null)))
+
+        val adapter = CommonAdapter(dataSet)
+        adapter.notifyDataSetChanged()
+
+        rv_default.adapter = adapter
+        rv_default.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+
+        // 템플릿 다이얼로그 연결
         val menuDialog = MenuDialog(this)
         binding.plusBtn.setOnClickListener {
             menuDialog.showDialog()
+
+            // questionType에 따라서 다른 Recyclerview 랜더링 해야함!
+            menuDialog.setOnClickedListener(object : MenuDialog.ButtonClickListener{
+                override fun onClicked(questionType : String) {
+                    when(questionType){
+                        "TITLE" -> {
+                            dataSet.add(CommonItem(questionType, TitleViewObject(null, null)))
+                            adapter.notifyDataSetChanged()
+
+                        }
+                        "CONTOUR" -> Log.d("JSON Data", "구분선 템플릿 호출!")
+                        "SHORT_ANS" -> {
+                            dataSet.add(CommonItem(questionType, ShortAnswerViewObject(null)))
+                            adapter.notifyDataSetChanged()
+                        }
+                        "LONG_ANS" -> {
+                            dataSet.add(CommonItem(questionType, LongAnswerViewObject(null)))
+                            adapter.notifyDataSetChanged()
+                        }
+                        "OPTIONAL" -> {
+                            dataSet.add(CommonItem(questionType, OptionalViewObject(null)))
+                            adapter.notifyDataSetChanged()
+                        }
+                        "DROPDOWN" -> {
+                            dataSet.add(CommonItem(questionType, DropdownViewObject(null)))
+                            adapter.notifyDataSetChanged()
+                        }
+                    }
+                }
+            })
         }
 
         // 공유하기 버튼 연결
@@ -104,19 +131,9 @@ class ProduceActivity : AppCompatActivity() {
             Toast.makeText(this, "공유하기 템플릿 띄워야함..", Toast.LENGTH_SHORT).show()
         }
 
-        // 설문 제작 페이지 초기 셋팅 (미리 제목템플릿 생성)
-        val adapter = CommonAdapter (
-            arrayOf(
-                CommonItem(
-                    "TITLE",
-                    TitleViewObject(null, null)
-                )
-            )
-        )
-
         // 샘플 Json Data 설정 코드 (Retrofit2 적용해야함)
         item = Items("")
-        question = Question("Title", "첫번째 문제입니다!", "", listOf(item))
+        question = Question("Title", "첫번째 설문입니다!", "", listOf(item))
         questions = Questions(listOf(question))
         Log.d("JSON Data", "$questions")
 
@@ -124,7 +141,6 @@ class ProduceActivity : AppCompatActivity() {
         val surveyJsonData = Json.encodeToString(surveyJson)
         Log.d("JSON Data", surveyJsonData)
 
-        binding.surveyArea.adapter = adapter
     }
 
     // 저장 버튼 터치시 나타다는 다이얼로그

@@ -16,4 +16,8 @@ class SurveyDataViewModel : ViewModel() {
     val resultTitleTemplateData : LiveData<TitleViewObject>
         get() = _titleTemplateData
 
+    fun printData() {
+        Log.d("LiveData", "$resultTitleTemplateData")
+    }
+
 }

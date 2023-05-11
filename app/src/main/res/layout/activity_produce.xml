@@ -7,6 +7,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/secondaryBackgroundColor"
         tools:context=".produce.ProduceActivity">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -73,18 +74,13 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/surveyArea"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="16dp" />
+                android:layout_marginRight="16dp"
+                android:paddingBottom="140dp"/>
 
         </ScrollView>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@color/secondaryColor"
-            app:layout_constraintTop_toTopOf="@id/navigationBar" />
 
         <LinearLayout
             android:id="@+id/navigationBar"
@@ -93,6 +89,7 @@
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
             android:weightSum="4"
+            android:background="@color/secondaryBackgroundColor"
             app:layout_constraintBottom_toBottomOf="parent">
 
             <LinearLayout

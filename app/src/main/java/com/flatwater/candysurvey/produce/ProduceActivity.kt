@@ -6,11 +6,9 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,13 +16,8 @@ import com.flatwater.candysurvey.MainActivity
 import com.flatwater.candysurvey.R
 import com.flatwater.candysurvey.adapter.CommonAdapter
 import com.flatwater.candysurvey.databinding.ActivityProduceBinding
-import com.flatwater.candysurvey.jsondata.Items
-import com.flatwater.candysurvey.jsondata.Question
-import com.flatwater.candysurvey.jsondata.Questions
-import com.flatwater.candysurvey.jsondata.SurveyDataModel
+import com.flatwater.candysurvey.jsondata.*
 import com.flatwater.candysurvey.setting.MyPageActivity
-import com.flatwater.candysurvey.template.TitleTemplateModel
-import com.flatwater.candysurvey.template.TitleTemplateRVAdapter
 import com.flatwater.candysurvey.templatedata.CommonItem
 import com.flatwater.candysurvey.templatedata.viewobject.*
 import com.flatwater.candysurvey.viewModel.SurveyDataViewModel
@@ -44,7 +37,8 @@ class ProduceActivity : AppCompatActivity() {
     private var item : Items = Items("")
     private var question : Question = Question("", "", "", listOf(item))
     private var questions : Questions = Questions(listOf(question))
-    private var surveyJson : SurveyDataModel = SurveyDataModel("", "", listOf(questions))
+    private var survey : Survey = Survey("", "", questions)
+    private var surveyJson : SurveyDataModel = SurveyDataModel(survey)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,12 +51,6 @@ class ProduceActivity : AppCompatActivity() {
         // 뒤로가기 버튼 연결
         binding.closeBtn.setOnClickListener{
             showBackDialog()
-        }
-
-        // 저장 버튼 연결
-        binding.saveBtn.setOnClickListener {
-            showSaveDialog()
-            Log.d("JSON Data", "$dataSet")
         }
 
         // 메인페이지 네비게이션 연결
@@ -100,6 +88,7 @@ class ProduceActivity : AppCompatActivity() {
                     when(questionType){
                         "TITLE" -> {
                             dataSet.add(CommonItem(questionType, TitleViewObject(null, null)))
+//                            Log.d("Json Data", "${dataSet[0]}")
                             adapter.notifyDataSetChanged()
 
                         }
@@ -125,6 +114,40 @@ class ProduceActivity : AppCompatActivity() {
             })
         }
 
+        // 저장 버튼 연결
+        binding.saveBtn.setOnClickListener {
+            showSaveDialog()
+            adapter.notifyDataSetChanged()
+
+            for(i in 0..(dataSet.size-1) ){
+
+                Log.d("Json Data", "${dataSet[i]}")
+
+                // CommonItem으로 접근하여 데이터 분리해서 SurveyDataModel에 연결하는 코드가 들어가야함!
+                when(dataSet[i].questionType) {
+                    "TITLE" -> {
+                        Log.d("JSON Data", "제목 템플릿입니다!")
+//                        Log.d("JSON Data", "${dataSet[i].questionObject}")
+                    }
+                    "CONTOUR" -> {
+                        Log.d("JSON Data", "구분선 템플릿입니다!")
+                    }
+                    "SHORT_ANS" -> {
+                        Log.d("JSON Data", "단답형 템플릿입니다!")
+                    }
+                    "LONG_ANS" -> {
+                        Log.d("JSON Data", "장문형 템플릿입니다!")
+                    }
+                    "OPTIONAL" -> {
+                        Log.d("JSON Data", "객관식 템플릿입니다!")
+                    }
+                    "DROPDOWN" -> {
+                        Log.d("JSON Data", "드롭다운 템플릿입니다!")
+                    }
+                }
+            }
+        }
+
         // 공유하기 버튼 연결
         binding.shareBtn.setOnClickListener {
             // 공유하기 템플릿 만드는 로직이 들어가야 합니다.
@@ -137,9 +160,14 @@ class ProduceActivity : AppCompatActivity() {
         questions = Questions(listOf(question))
         Log.d("JSON Data", "$questions")
 
-        surveyJson = SurveyDataModel("$surveyTitle", "첫번째 문제입니다!", listOf(questions))
+        survey = Survey("$surveyTitle", "첫번째 문제입니다!", questions)
+        surveyJson = SurveyDataModel(survey)
         val surveyJsonData = Json.encodeToString(surveyJson)
         Log.d("JSON Data", surveyJsonData)
+
+        // ViewModel 선언 & POST Request Test Code
+        val viewModel = ViewModelProvider(this).get(SurveyDataViewModel::class.java)
+        viewModel.requestPost()
 
     }
 

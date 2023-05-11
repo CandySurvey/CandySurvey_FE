@@ -2,9 +2,14 @@ package com.flatwater.candysurvey.jsondata
 
 @kotlinx.serialization.Serializable
 data class SurveyDataModel(
+    val survey : Survey
+)
+
+@kotlinx.serialization.Serializable
+data class Survey(
     val surveyTitle : String,
     val surveyDetail : String,
-    val questions : List<Questions>
+    val questions : Questions
 )
 
 @kotlinx.serialization.Serializable

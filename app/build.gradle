@@ -55,8 +55,12 @@ dependencies {
 
     // Kotlin Serialization
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0"
+    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
 
     // Kotlin ViewModel & LiveData
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.6.1"
+
+    // Kotlin Retrofit2
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
 }

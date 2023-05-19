@@ -41,6 +41,7 @@ class ProduceActivity : AppCompatActivity() {
     private var survey : Survey = Survey("", "", questions)
     private var surveyJson : SurveyDataModel = SurveyDataModel(survey)
 
+    // Default template Json data setting
     private val firstTitleTemplate = SurveyDataModel(
         Survey(
             surveyTitle = "$surveyTitle",
@@ -105,6 +106,8 @@ class ProduceActivity : AppCompatActivity() {
                 override fun onClicked(questionType : String) {
 
                     val emptyQuestion = Question(questionType, "", "", listOf(item))
+                    val emptyModelItems = listOf(ModelItem(""))
+
                     questions = firstTitleTemplate.survey.questions
 
                     when(questionType){
@@ -125,7 +128,9 @@ class ProduceActivity : AppCompatActivity() {
                             adapter.notifyDataSetChanged()
                         }
                         "OPTIONAL" -> {
-                            dataSet.add(CommonItem(questionType, OptionalViewObject(null)))
+                            // 객관식 템플릿 : 옵션 추가 기능 구현해야함!
+                            dataSet.add(CommonItem(questionType, OptionalViewObject(null, emptyModelItems)))
+                            Log.d("JSON Data", "$dataSet")
                             questions = addQuestion(questions, emptyQuestion)
                             adapter.notifyDataSetChanged()
                         }

@@ -11,10 +11,8 @@ import retrofit2.http.POST
 
 interface SurveyApi {
 
-    @POST("test")
+    @Headers("accept: application/json", "content-type: application/json")
+    @POST("/test")
     suspend fun requestPost(@Body postData: SurveyDataModel): Response<SurveyDataModel>
-
-    // @GET("")
-    // suspend fun getAllSurveys() : Survey
 
 }

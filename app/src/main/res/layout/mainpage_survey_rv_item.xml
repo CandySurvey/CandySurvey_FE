@@ -15,7 +15,7 @@
 
         <ImageView
             android:id="@+id/randomImage"
-            android:src="@drawable/dummyimage1"
+            android:src="@drawable/illustration"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:scaleType="fitXY"/>
